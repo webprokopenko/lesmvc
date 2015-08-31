@@ -1,0 +1,29 @@
+.select {
+    @include selectbox(133px, 24px, 26px, url('../img/select.png'));
+    @extend %no-select;
+
+    .selectbox__title-text,
+    .selectbox__item-link {
+        font-size: 14px;
+        font-family: 'ElektraLightPro';
+    }
+
+    .selectbox__dropdown-item {
+        .selectbox__item-link {
+            &:hover {
+                background: $color-primary;
+                color: #fff;
+            }
+        }
+        &.selected {
+            .selectbox__item-link {
+                color: #bed1e3;
+                background: #fff;
+
+                &:hover {
+                    background: inherit;
+                }
+            }
+        }
+    }
+}

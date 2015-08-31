@@ -1,0 +1,39 @@
+.footer {
+    display: table-row;
+    height: 1px;
+    background: #613993 url(../img/footer-bg.png) repeat;
+    color: #fff;
+}
+
+.footer__inner {
+    padding: 60px 0;
+}
+
+.footer__logo {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    float: left;
+    margin-top: -19px;
+}
+.footer__logo-link {
+    display: block;
+    width: 139px;
+    height: 39px;
+    text-indent: -9999px;
+    background: url(../img/logo-footer.png) center no-repeat;
+}
+
+.footer__nav {
+    float: left;
+}
+
+.footer__extlinks {
+    float: right;
+}
+.footer__extlinks-row {
+    margin-bottom: 26px;
+}
+.footer__extlinks-row:last-child {
+    margin-bottom: 0;
+}

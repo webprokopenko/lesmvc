@@ -1,0 +1,143 @@
+$color-hover: #dce6f0;
+
+.menu {
+    overflow: hidden;
+    font-size: 15px;
+}
+.menu__item {
+    position: relative;
+    float: left;
+    border-bottom: 1px solid #dde3ec;
+}
+.menu__link {
+    position: relative;
+    display: block;
+    float: left;
+    height: 40px;
+    padding: 14px 9px 11px 29px;
+    text-decoration: none;
+    background: #f7f7f7;
+    color: $color-secondary;
+    z-index: 7;
+    @include transition;
+
+    &:hover {
+        color: inherit;
+    }
+}
+
+/* Треугольники */
+.menu__link:before,
+.menu__link:after {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: -20px;
+    content: ' ';
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    -moz-transform: scale(.9999); /* делаем линии гладкими в Firefox */
+    @include transition;
+}
+.menu__link:before {
+    z-index: 1;
+    margin-left: 0;
+    border-left: 15px solid #dde3ec;
+}
+.menu__link:after {
+    z-index: 7;
+    margin-left: -1px;
+    border-left: 15px solid #f7f7f7;
+}
+.menu__item:nth-child(2) .menu__link,
+.menu__item:nth-child(2) .menu__link:after {
+    z-index: 6;
+}
+.menu__item:nth-child(3) .menu__link,
+.menu__item:nth-child(3) .menu__link:after {
+    z-index: 5;
+}
+.menu__item:nth-child(4),
+.menu__item:nth-child(4).menu__link:after {
+    z-index: 4;
+}
+.menu__item:nth-child(5),
+.menu__item:nth-child(5).menu__link:after {
+    z-index: 3;
+}
+.menu__item:nth-child(6),
+.menu__item:nth-child(6).menu__link:after {
+    z-index: 2;
+}
+.menu__item:nth-child(7),
+.menu__item:nth-child(7).menu__link:after {
+    z-index: 1;
+}
+
+.menu__item:last-child .menu__link {
+    padding-right: 8px;
+    padding-left: 27px;
+}
+
+/* Hover */
+.menu__link:hover {
+    background: $color-hover;
+}
+.menu__link:hover:after {
+    border-left-color: $color-hover;
+}
+
+
+/* menu__link_state_current  */
+.menu__link_state_current,
+.menu__link_state_current:hover {
+    background: $color-primary;
+    color: #fff;
+}
+.menu__link_state_current:after,
+.menu__link_state_current:hover:after {
+    border-left-color: $color-primary;
+}
+
+
+/* Первая ссылка в меню: вырезаем треугольник слева */
+.menu__item:first-child {
+    padding-left: 15px;
+}
+.menu__item:first-child .menu__link {
+    padding-left: 14px;
+}
+.menu__item:first-child:before,
+.menu__item:first-child:after {
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    content: ' ';
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    @include transition;
+}
+.menu__item:first-child:before {
+    top: 0;
+    border-right-width: 15px;
+    border-right-color: #f7f7f7;
+    border-bottom-width: 20px;
+}
+.menu__item:first-child:after {
+    bottom: 0;
+    border-bottom-width: 20px;
+    border-bottom-color: #f7f7f7;
+    border-left-width: 15px;
+}
+/* Hover первой ссылки */
+.menu__item:first-child:hover:before {
+    border-right-color: $color-hover;
+}
+.menu__item:first-child:hover:after {
+    border-bottom-color: $color-hover;
+}

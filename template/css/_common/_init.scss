@@ -1,0 +1,26 @@
+html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+}
+body {
+    height: 100%;
+    background: #fff;
+    font-family: $font-primary;
+    color: $color-secondary;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+::selection {
+  background: $color-primary;
+  color: #fff;
+}
+::-moz-selection {
+  background: $color-primary;
+  color: #fff;
+}

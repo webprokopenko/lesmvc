@@ -1,0 +1,47 @@
+.header {
+    position: relative;
+    display: table-row;
+    height: 140px;
+    background: url(../img/header-bg.jpg) top center repeat-x;
+    background-size: 100% 120px;
+}
+
+.header__logo-container {
+    margin-top: 23px;
+    margin-bottom: 15px;
+    @include clearfix;
+}
+
+.header__logo {
+    float: left;
+    margin-top: 2px;
+}
+
+.header__contacts {
+    position: absolute;
+    top: 23px;
+    right: 0;
+}
+.header__phone {
+    display: block;
+    text-decoration: none;
+}
+.header__phone-prefix {
+    vertical-align: top;
+    font-family: $font-primary-bold;
+    font-size: 16px;
+    color: $color-primary;
+}
+.header__phone-number {
+    font-size: 25px;
+    color: $color-secondary;
+}
+.header__email {
+    font-size: 17px;
+    line-height: 25px;
+}
+
+.header__menu {
+    /* position: absolute;
+    bottom: -36px; */
+}

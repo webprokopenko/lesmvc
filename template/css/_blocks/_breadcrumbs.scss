@@ -1,0 +1,21 @@
+.breadcrumbs {
+    float: left;
+    list-style: none;
+}
+.breadcrumbs__item {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+}
+.breadcrumbs__item:not(:last-child) {
+    padding-right: 11px;
+}
+.breadcrumbs__item:not(:last-child):after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    content: '>';
+    font-size: 11px;
+}

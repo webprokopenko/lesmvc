@@ -1,0 +1,27 @@
+.page {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.page__wrapper {
+    position: relative;
+}
+.page__container {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    @include clearfix;
+}
+.page__row {
+    margin-top: 24px;
+    @include clearfix;
+}
+.page__middle {
+    margin-bottom: 80px;
+}
+
+.page__region {
+    float: right;
+    width: 740px;
+}

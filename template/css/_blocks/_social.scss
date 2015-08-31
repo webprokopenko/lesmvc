@@ -1,0 +1,18 @@
+.social {
+    display: block;
+    width: 44px;
+    height: 44px;
+    background: url(../img/socials.png) no-repeat;
+}
+.social__text {
+    display: none;
+}
+.social_vk {
+    background-position: 0 0;
+}
+.social_fb {
+    background-position: -53px 0;
+}
+.social_tw {
+    background-position: -104px 0;
+}

@@ -1,0 +1,30 @@
+.footer-nav {
+    float: left;
+    margin-right: 72px;
+}
+.footer-nav:last-of-type {
+    margin-right: 0;
+}
+.footer-nav__header {
+    margin-bottom: 10px;
+    font-family: $font-primary-bold;
+    font-size: 15px;
+}
+.footer-nav__list {
+    margin: 0;
+    padding: 0;
+}
+.footer-nav__item {
+    margin-bottom: 10px;
+}
+.footer-nav__item:last-child {
+    margin-bottom: 0;
+}
+.footer-nav__link {
+    font-size: 15px;
+    color: #fff;
+
+    &:hover {
+        color: inherit;
+    }
+}

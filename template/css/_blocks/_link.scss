@@ -1,0 +1,9 @@
+a, .link {
+    color: $color-primary;
+
+    @include transition;
+
+    &:hover {
+        color: $color-hover;
+    }
+}

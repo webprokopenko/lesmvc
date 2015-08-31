@@ -1,0 +1,11 @@
+.pagination {
+    float: right;
+}
+.pagination__item {
+    display: inline;
+    margin-right: 3px;
+    font-size: 15px;
+}
+.pagination__item:last-child {
+    margin-right: 0;
+}

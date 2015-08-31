@@ -1,0 +1,48 @@
+.catalog-nav {
+    background: #f7f7f7;
+}
+
+.catalog-nav__link {
+    display: block;
+    padding: 6px 20px;
+    text-decoration: none;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #dae1eb;
+    font-size: 15px;
+    color: $color-secondary;
+
+    &:hover {
+        color: inherit;
+    }
+}
+.catalog-nav__link:hover {
+    background: #bed1e3;
+}
+.catalog-nav__trigger_active {
+    background: $color-primary;
+    color: #fff;
+}
+.catalog-nav__trigger_active:hover {
+    background: $color-primary;
+    color: #fff;
+}
+
+.catalog-nav__subnav {
+    display: none;
+    padding-left: 15px;
+}
+.catalog-nav__subnav_opened {
+    display: block;
+}
+.catalog-nav__subnav-link {
+    position: relative;
+}
+.catalog-nav__subnav-link:before {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    display: block;
+    content: '>';
+    font-family: $font-primary-bold;
+    font-size: 14px;
+}
