@@ -73,8 +73,11 @@
             <ul class="menu list">
                 <li class='list__item menu__item'><a href='/marketbuy/' id='' class='menu__link'>Купить лес</a></li>
                 <li class='list__item menu__item'><a href='/marketsale/' id='' class='menu__link'>Продать лес</a></li>
-                <li class='list__item menu__item'><a href='#' id='' class='menu__link'>Найти инвестора</a></li>
-                <li class='list__item menu__item'><a href='#' id='' class='menu__link'>Найти партнера</a></li>
+                <li class='list__item menu__item'><a href='/investors/' id='' class='menu__link'>Найти инвестора</a></li>
+                <li class='list__item menu__item'><a href='/partners/' id='' class='menu__link'>Найти партнера</a></li>
+                <li class='list__item menu__item'><a href='/technologybuy/' id='' class='menu__link'>Купть технологию</a></li>
+                <li class='list__item menu__item'><a href='/technologysale/' id='' class='menu__link'>Продать технологию</a></li>
+
 
             </ul>
         </nav>
