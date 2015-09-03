@@ -39,6 +39,15 @@ return array(
     'investors/page-([0-9]+)' => 'investors/index/$1', // actionIndex в InvestorsController + page
     'investors' => 'investors/index', // actionIndex в InvestorsController
 
+    //Оборудование продажа
+    'equipmentsale/add' => 'equipmentsale/add', // actionAdd в EquipmentSaleController
+    'equipmentsale/page-([0-9]+)' => 'equipmentsale/index/$1', // actionIndex в EquipmentSaleController + page
+    'equipmentsale' => 'equipmentsale/index', // actionIndex в EquipmentSaleController
+    //Оборудование покупка
+    'equipmentbuy/add' => 'equipmentbuy/add', // actionAdd в EquipmentBuyController
+    'equipmentbuy/page-([0-9]+)' => 'equipmentbuy/index/$1', // actionIndex в EquipmentBuyController + page
+    'equipmentbuy' => 'equipmentbuy/index', // actionIndex в EquipmentBuyController
+
     // Главная страница
     'page-([0-9]+)' => 'site/index/$1', // actionIndex в SiteController + page
     '' => 'site/index', // actionIndex в SiteController

@@ -3,14 +3,14 @@ var pupups_equipment_sale = (function(){
             $('#add_equipment_sales').on('click', _openPopup);
             $('#market_equipment_send').on('submit', _privateFunc_valid);
             $(document).ready(function(){
-                var url = 'ajax/ajax_add_equipment_sale.php';
+                var url = '/equipmentsale/add/';
                 $('#foto_equipment').fileupload({
                     url: url,
                     dataType: 'json',
                     done: function (e,ans) {
                         if(ans.jqXHR.responseJSON.error==0){
                             document.getElementById("filename").value = ans.jqXHR.responseJSON.file_name;
-                            $("#download_img").html("<div class='download_img-wrapp'><img src='../uploads/"+ans.jqXHR.responseJSON.file_name+"'></div>");
+                            $("#download_img").html("<div class='download_img-wrapp'><img src='/uploads/"+ans.jqXHR.responseJSON.file_name+"'></div>");
                         }
                         else{
                             $(".popup__msg-sale").text(ans.jqXHR.responseJSON.msg).removeClass('sucess').addClass("error");
@@ -91,12 +91,12 @@ var pupups_equipment_sale = (function(){
     //Функция добавления объявления о продаже
         _market_equipment_add = function(){
             var form = $("#market_equipment_send"),
-                url = 'ajax/ajax_add_equipment_sale.php',
+                url = '/equipmentsale/add/',
                 defObject = _ajaxForm(form,url);
             defObject.done(function(ans){
                 if(ans.error===0){
                     $(".popup__msg-sale").text(ans.msg).removeClass('error').addClass("sucess");
-                    window.location.href = "equipment_sale.php";
+                    window.location.href = "/equipmentsale/";
                 }
                 else{
                     $(".popup__msg-sale").text(ans.msg).removeClass('sucess').addClass("error");
@@ -134,5 +134,4 @@ var pupups_equipment_sale = (function(){
 
 $(document).ready(function(){
     pupups_equipment_sale.init();
-
 });

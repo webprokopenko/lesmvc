@@ -3,7 +3,7 @@ var pupups_equipment_buy = (function(){
             $('#add_equipment_buy').on('click', _openPopup);
             $('#market_equipment_send').on('submit', _privateFunc_valid);
             $(document).ready(function(){
-                var url = 'ajax/ajax_add_equipment_buy.php';
+                var url = '/equipmentbuy/add/';
                 $('#foto_equipment').fileupload({
                     url: url,
                     dataType: 'json',
@@ -91,12 +91,12 @@ var pupups_equipment_buy = (function(){
     //Функция добавления объявления о продаже
         _market_equipment_add = function(){
             var form = $("#market_equipment_send"),
-                url = 'ajax/ajax_add_equipment_buy.php',
+                url = '/equipmentbuy/add/',
                 defObject = _ajaxForm(form,url);
             defObject.done(function(ans){
                 if(ans.error===0){
                     $(".popup__msg-buy").text(ans.msg).removeClass('error').addClass("sucess");
-                    window.location.href = "equipment_buy.php";
+                    window.location.href = "/equipmentbuy/";
                 }
                 else{
                     $(".popup__msg-buy").text(ans.msg).removeClass('sucess').addClass("error");

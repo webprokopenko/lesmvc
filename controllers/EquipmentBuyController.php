@@ -1,20 +1,20 @@
 <?php
-class EquipmentSaleController
+class EquipmentBuyController
 {
     public function actionIndex($page=1)
     {
         $page = intval($page);
-        $equipment_all_list = Equipment::getEquipmentByAction($page,2);
+        $equipment_all_list = Equipment::getEquipmentByAction($page,1);
 
 
         // Общее количетсво товаров (необходимо для постраничной навигации)
-        $total = Equipment::getTotalEquipment(2);
+        $total = Equipment::getTotalEquipment(1);
 
         // Создаем объект Pagination - постраничная навигация
         $pagination = new Pagination($total, $page, Technology::SHOW_BY_DEFAULT, 'page-');
 
         //Подключаем вид
-        require_once(ROOT.'/views/equipment/equipmentsale.php');
+        require_once(ROOT.'/views/equipment/equipmentbuy.php');
 
         return true;
     }
@@ -58,13 +58,13 @@ class EquipmentSaleController
                         $status_equipment = $_POST['status_equipment'];
                         $cena = $_POST['cena'];
                         $data_actuality = date("Y-m-d");
-                        $id_type_action = 2; //Тип объявления - 1-покупка 2-продажа
+                        $id_type_action = 1; //Тип объявления - 1-покупка 2-продажа
                         if(!empty($_POST['filename'])) $filename = trim(htmlspecialchars($_POST['filename'])); else $filename=NULL;
 
                         $action = Equipment::insertEquipment($id_company, $nazvanie, $model, $status_equipment, $cena, $data_actuality,$id_type_action,$filename);
                         if($action){
                             $data["error"]=0;
-                            $data["msg"]="Вы успешно добавили объявление в категорию Оборудование";
+                            $data["msg"]="Вы успешно добавили объявление в категорию Оборудование - Продажа";
                         }
                         header("Content-Type: application/json");
                         echo json_encode($data);
@@ -82,7 +82,7 @@ class EquipmentSaleController
                 }
                 else {
                     $data["error"]=1;
-                    $data['msg']="Все поля должны быть заполнены {$_POST['nazvanie']} , {$_POST['model']} , {$_POST['status_equipment']}";
+                    $data['msg']="Все поля должны быть заполнены";
                     header("Content-Type: application/json");
                     echo json_encode($data);
                     exit;

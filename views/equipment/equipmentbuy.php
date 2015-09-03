@@ -31,8 +31,8 @@ require_once(ROOT."/views/layouts/header.php");?>
                     <?endif;?>
                     <?if(!empty($_SESSION['user_id'])):?>
                         <div class="add_obj">
-                            <a href="#" id="add_equipment_sales" class="add_obj-item">
-                                Добавить объявление о продаже оборудования<br>
+                            <a href="#" id="add_equipment_buy" class="add_obj-item">
+                                Добавить объявление о покупке оборудования<br>
                             </a>
                         </div>
                     <?endif;?>
@@ -95,17 +95,17 @@ require_once(ROOT."/views/layouts/header.php");?>
 <?php require_once(ROOT."/views/layouts/footer.php");?>
 <?php if($_SESSION['user_id']):?>
     <!-- Начало окна добавления продажи -->
-    <div class="popup_add_prog" id="modal_equipment_sale">
+    <div class="popup_add_prog" id="modal_equipment_buy">
         <div class="popup_prog_header">
             <button type="button" class="close" id="close"></button>
             <div class="prog_header_text">
-                Добавить объявление о продаже
+                Добавить объявление о покупке оборудования
             </div>
         </div>
         <div class="popup_prog_body">
             <div class="popup__msg-sale">
             </div>
-            <form action="/equipmentsale/add/" class="form"  id="market_equipment_send"  method="post" enctype="multipart/form-data">
+            <form action="/equipmentbuy/add/" class="form"  id="market_equipment_send"  method="post" enctype="multipart/form-data">
                 <label for="company" class="prog_span">Компания: <b><?=Market::getCompanyNameById($_SESSION['user_id'])?></b></label>
                 <label class="prog_span">Категория объявления: <b>Оборудование - Продажа</b></label>
                 <label for="nazvanie" class="prog_span">Название:</label>
@@ -132,7 +132,7 @@ require_once(ROOT."/views/layouts/header.php");?>
     </div>
     <!-- конец окна добавления продажи -->
 <?php endif; ?>
-<script src="/template/js/add_equipment_sale.js"></script>
+<script src="/template/js/add_equipment_buy.js"></script>
 <script src="/template/bower/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
 <script src="/template/bower/jquery-file-upload/js/jquery.iframe-transport.js"></script>
 <script src="/template/bower/jquery-file-upload/js/jquery.fileupload.js"></script>

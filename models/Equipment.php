@@ -1,6 +1,8 @@
 <?php
 class Equipment
 {
+    const SHOW_BY_DEFAULT = Market::SHOW_BY_DEFAULT;
+
     public static function getEquipmentByAction($page,$action)
     {
         $limit = self::SHOW_BY_DEFAULT;
@@ -54,5 +56,69 @@ class Equipment
         $company_name = $result->fetch();
         //Возвращаем Имя компании
         return $company_name['name_status_equipment'];
+    }
+    public static function getTotalEquipment($category=false)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        if($category===false){
+            // Текст запроса к БД
+            $sql = 'SELECT count(id_equipment) AS count FROM equipment';
+            $result = $db->prepare($sql);
+        }else{
+            // Текст запроса к БД
+            $sql = 'SELECT count(id_equipment) AS count FROM equipment WHERE id_equipment = :category';
+            $result = $db->prepare($sql);
+            $result->bindParam(':category',$category,PDO::PARAM_INT);
+        }
+
+        // Выполнение коменды
+        $result->execute();
+
+        // Возвращаем значение count - количество
+        $row = $result->fetch();
+        return $row['count'];
+    }
+    public static function getListStatusEquipment()
+    {
+        $db = DB::getConnection();
+        $sql = 'SELECT * FROM status_equipment_slv';
+
+        $result = $db->prepare($sql);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+
+        $list_category = array();
+        while($row = $result->fetch()){
+            $list_category.="<option value='".$row['id_status_equipment']."'>".$row['name_status_equipment']."</option>";
+        }
+
+        return $list_category;
+    }
+
+    public static function insertEquipment($id_company, $nazvanie, $model, $status_equipment, $cena, $data_actuality,$id_type_action,$filename)
+    {
+        $insert_equipment_query = "INSERT INTO equipment (id_company,nazvanie, model, status_equipment,cena, data_actuality, id_type_action,foto) ";
+        $insert_equipment_query.= " VALUES(:id_company, :nazvanie, :model,:status_equipment ,:cena, :data_actuality, :id_type_action,:filename)";
+
+        $db = Db::getConnection();
+
+        $result = $db->prepare($insert_equipment_query);
+        $result->bindParam(':id_company', $id_company, PDO::PARAM_INT);
+        $result->bindParam(':nazvanie', $nazvanie, PDO::PARAM_STR);
+        $result->bindParam(':model', $model, PDO::PARAM_STR);
+        $result->bindParam(':status_equipment', $status_equipment, PDO::PARAM_INT);
+        $result->bindParam(':cena', $cena, PDO::PARAM_STR);
+        $result->bindParam(':data_actuality', $data_actuality, PDO::PARAM_STR);
+        $result->bindParam(':id_type_action', $id_type_action, PDO::PARAM_INT);
+        $result->bindParam(':filename', $filename, PDO::PARAM_STR);
+
+
+        // Выполнение коменды
+        $data = $result->execute();
+        //$data = $result->errorInfo();
+
+        return $data;
     }
 }
